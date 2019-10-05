@@ -1,0 +1,48 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+# https://app.quickdatabasediagrams.com/#/
+
+Dept_Manager
+-
+dept_no varchar(8) FK >- Departments.dept_no
+emp_no Integer FK - Employees.emp_no
+from_date date
+to_date date
+
+Departments
+-
+dept_no PK varchar(8)
+dept_name varchar(32)
+
+Dept_Employees
+-
+emp_no Integer FK - Employees.emp_no
+dept_no varchar(8) FK - Departments.dept_no
+from_date date
+to_date date
+
+
+
+Employees
+-
+emp_no PK Integer
+birth_date date
+first_name varchar(64)
+last_name varchar(64)
+gender char
+hire_date date
+
+Salaries
+-
+emp_no Integer FK - Employees.emp_no
+salary Integer
+from_date date
+to_date date
+
+Titles
+-
+emp_no Integer FK -< Employees.emp_no
+title varchar(64)
+from_date date
+to_date date
