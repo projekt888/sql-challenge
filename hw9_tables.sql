@@ -47,7 +47,10 @@ SELECT Employees.emp_no, Employees.last_name, Employees.first_name, Employees.ge
 SELECT * FROM Employees WHERE EXTRACT(year FROM "hire_date") = 1986
 
 /*3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name, and start and end employment dates.*/
-SELECT Dept_Manager.dept_no, Departments.dept_name, Dept_Manager.emp_no FROM Departments INNER JOIN Dept_Manager ON Dept_Manager.dept_no=Departments.dept_no;
+SELECT Dept_Manager.dept_no, Departments.dept_name, Dept_Manager.emp_no, Employees.last_name, Employees.first_name, Dept_Manager.from_date, Dept_Manager.to_date
+FROM Departments
+JOIN Dept_Manager ON Dept_Manager.dept_no=Departments.dept_no
+JOIN Employees ON Dept_Manager.emp_no=Employees.emp_no;
 
 /*4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
