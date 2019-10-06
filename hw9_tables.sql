@@ -61,8 +61,18 @@ Dept_Employees.dept_no = Departments.dept_no ORDER BY Employees.emp_no
 /*5. List all employees whose first name is "Hercules" and last names begin with "B."*/
 SELECT * FROM employees WHERE first_name = 'Hercules' AND last_name LIKE 'B%'
 
-/*6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+/*6. List all employees in the Sales department, including their employee number, last name, first name, and department name.*/
+SELECT departments.dept_name,employees.emp_no,employees.last_name,employees.first_name FROM departments,employees,dept_employees 
+WHERE departments.dept_name = 'Sales' 
+AND dept_employees.dept_no = departments.dept_no
+AND dept_employees.emp_no = employees.emp_no
 
-7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
-8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.*/
+/*7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.*/
+SELECT departments.dept_name,employees.emp_no,employees.last_name,employees.first_name FROM departments,employees,dept_employees 
+WHERE (departments.dept_name = 'Sales' OR departments.dept_name = 'Development')
+AND dept_employees.dept_no = departments.dept_no
+AND dept_employees.emp_no = employees.emp_no
+
+/*8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.*/
+
