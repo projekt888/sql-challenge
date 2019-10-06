@@ -52,11 +52,16 @@ FROM Departments
 JOIN Dept_Manager ON Dept_Manager.dept_no=Departments.dept_no
 JOIN Employees ON Dept_Manager.emp_no=Employees.emp_no;
 
-/*4. List the department of each employee with the following information: employee number, last name, first name, and department name.
+/*4. List the department of each employee with the following information: employee number, last name, first name, and department name.*/
+SELECT Employees.emp_no, Employees.last_name, Employees.first_name, Departments.dept_name 
+FROM Employees, Departments, Dept_Employees
+WHERE Employees.emp_no = Dept_Employees.emp_no AND
+Dept_Employees.dept_no = Departments.dept_no ORDER BY Employees.emp_no
 
-5. List all employees whose first name is "Hercules" and last names begin with "B."
+/*5. List all employees whose first name is "Hercules" and last names begin with "B."*/
+SELECT * FROM employees WHERE first_name = 'Hercules' AND last_name LIKE 'B%'
 
-6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+/*6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
