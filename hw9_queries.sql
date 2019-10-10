@@ -31,6 +31,7 @@ SELECT departments.dept_name,employees.emp_no,employees.last_name,employees.firs
 WHERE (departments.dept_name = 'Sales' OR departments.dept_name = 'Development')
 AND dept_employees.dept_no = departments.dept_no
 AND dept_employees.emp_no = employees.emp_no
+ORDER BY departments.dept_name, employees.last_name
 
 /*8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.*/
 SELECT last_name, count(*) as employee_lasts
